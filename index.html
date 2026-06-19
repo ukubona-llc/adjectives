@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Session 003 — Triggers, Sensitization, Grammar — Ukubona LLC</title>
+
+  <meta property="og:title" content="Session 003 — Triggers, Sensitization, Grammar — Ukubona LLC" />
+  <meta property="og:description" content="One phrase at 42:55 in a stranger's video, traced through ε_FGT, central sensitization, and the hidden grammar of adjective order." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://abikesa.github.io/logos/assets/ukubona-light.png" />
+
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" />
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico" media="(prefers-color-scheme: dark)" />
+  <link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-light.png" as="image" />
+  <link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-dark.png" as="image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg0:        #0f0f0f;
+      --bg1:        #171717;
+      --bg2:        #1f1f1f;
+      --bg3:        #2a2a2a;
+      --border:     rgba(255,255,255,0.08);
+      --border-md:  rgba(255,255,255,0.14);
+      --text0:      #f2f0eb;
+      --text1:      #b8b4aa;
+      --text2:      #6e6a62;
+      --accent:     #7f77dd;
+      --accent-dim: rgba(127,119,221,0.18);
+      --accent-brd: rgba(127,119,221,0.4);
+      --coral:      #d85a30;
+      --coral-dim:  rgba(216,90,48,0.14);
+      --coral-brd:  rgba(216,90,48,0.35);
+      --teal:       #1d9e75;
+      --teal-dim:   rgba(29,158,117,0.14);
+      --teal-brd:   rgba(29,158,117,0.35);
+      --amber:      #ba7517;
+      --amber-dim:  rgba(186,117,23,0.14);
+      --amber-brd:  rgba(186,117,23,0.35);
+      --serif:      'DM Serif Display', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --mono:       'DM Mono', 'Fira Mono', monospace;
+      --radius:     8px;
+      --radius-lg:  14px;
+      --max:        740px;
+    }
+
+    [data-theme="light"] {
+      --bg0:        #f5f3ee;
+      --bg1:        #ffffff;
+      --bg2:        #f0ede6;
+      --bg3:        #e8e4db;
+      --border:     rgba(0,0,0,0.07);
+      --border-md:  rgba(0,0,0,0.13);
+      --text0:      #1a1916;
+      --text1:      #4a4740;
+      --text2:      #8a8680;
+      --accent:     #534ab7;
+      --accent-dim: rgba(83,74,183,0.10);
+      --accent-brd: rgba(83,74,183,0.30);
+      --coral:      #993c1d;
+      --coral-dim:  rgba(153,60,29,0.10);
+      --coral-brd:  rgba(153,60,29,0.28);
+      --teal:       #0f6e56;
+      --teal-dim:   rgba(15,110,86,0.10);
+      --teal-brd:   rgba(15,110,86,0.28);
+      --amber:      #854f0b;
+      --amber-dim:  rgba(133,79,11,0.10);
+      --amber-brd:  rgba(133,79,11,0.28);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg0);
+      color: var(--text0);
+      line-height: 1.75;
+      transition: background 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .outer { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── HEADER ── */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg0);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo-wrap {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .logo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      position: absolute;
+      top: 0; left: 0;
+      animation: spin 120s linear infinite;
+      transition: opacity 0.35s ease;
+    }
+    .logo-light { opacity: 0; }
+    .logo-dark  { opacity: 1; }
+    [data-theme="light"] .logo-light { opacity: 1; }
+    [data-theme="light"] .logo-dark  { opacity: 0; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .header-meta { flex: 1; min-width: 0; }
+    .header-meta h1 {
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--text0);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-meta p { font-size: 0.72rem; color: var(--text2); margin-top: 1px; }
+
+    .theme-btn {
+      background: var(--bg2);
+      border: 1px solid var(--border-md);
+      border-radius: 20px;
+      padding: 0.3rem 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text1);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+    }
+    .theme-btn:hover { background: var(--bg3); color: var(--text0); }
+
+    /* ── NAV ── */
+    .nav-strip {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg0);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 0.75rem 1rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text2);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn:hover { color: var(--text1); }
+    .tab-btn.active { color: var(--text0); border-bottom-color: var(--accent); }
+
+    /* ── MAIN ── */
+    main { padding: 3rem 0 6rem; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .section { margin-bottom: 2.5rem; }
+
+    /* ── TYPE ── */
+    .display {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text0);
+      margin-bottom: 0.5rem;
+    }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text2);
+      margin-bottom: 0.75rem;
+    }
+    .lede {
+      font-size: 1.05rem;
+      color: var(--text1);
+      line-height: 1.7;
+      max-width: 58ch;
+    }
+    h2.section-head {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text2);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    p { margin-bottom: 1rem; color: var(--text1); }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text0); font-weight: 500; }
+    em { font-style: italic; color: var(--text1); }
+    a.src-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-brd); }
+    a.src-link:hover { border-bottom-color: var(--accent); }
+
+    blockquote {
+      border-left: 2px solid var(--border-md);
+      padding-left: 1.1rem;
+      margin: 1.5rem 0;
+      color: var(--text0);
+      font-size: 1.3rem;
+      font-family: var(--serif);
+      font-style: italic;
+      line-height: 1.4;
+    }
+    .cite-line {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--text2);
+      margin-top: -1rem;
+      margin-bottom: 1.5rem;
+      padding-left: 1.1rem;
+    }
+
+    /* ── EQ BLOCK ── */
+    .eq-block {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      background: var(--bg2);
+      border-left: 3px solid var(--accent-brd);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      color: var(--text0);
+      line-height: 2;
+      margin: 1.25rem 0;
+    }
+
+    /* ── INSIGHT PANEL ── */
+    .insight {
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+    .insight.accent { background: var(--accent-dim); border: 1px solid var(--accent-brd); }
+    .insight.coral  { background: var(--coral-dim);  border: 1px solid var(--coral-brd); }
+    .insight.teal   { background: var(--teal-dim);   border: 1px solid var(--teal-brd); }
+    .insight.amber  { background: var(--amber-dim);  border: 1px solid var(--amber-brd); }
+    .insight-head {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .insight.accent .insight-head { color: var(--accent); }
+    .insight.coral  .insight-head { color: var(--coral); }
+    .insight.teal   .insight-head { color: var(--teal); }
+    .insight.amber  .insight-head { color: var(--amber); }
+    .insight p { font-size: 0.875rem; }
+
+    /* ── THREAD ── */
+    .thread { margin: 1.5rem 0; }
+    .thread-turn {
+      display: flex;
+      gap: 0.875rem;
+      margin-bottom: 1.1rem;
+      align-items: flex-start;
+    }
+    .turn-tag {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bg1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      white-space: nowrap;
+    }
+    .turn-tag.finding  { background: var(--teal); }
+    .turn-tag.gap      { background: var(--coral); }
+    .turn-tag.question { background: var(--amber); }
+    .turn-tag.note     { background: var(--accent); }
+    .turn-body { flex: 1; }
+    .turn-body p { font-size: 0.85rem; margin-bottom: 0.35rem; }
+
+    /* ── MAPPING TABLE ── */
+    .map-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin: 1.25rem 0;
+    }
+    .map-table th {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text2);
+      border-bottom: 1px solid var(--border-md);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      font-weight: 400;
+    }
+    .map-table td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text1);
+      vertical-align: top;
+    }
+    .map-table tr:last-child td { border-bottom: none; }
+    .map-table td:first-child {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* ── VIDEO EMBED ── */
+    .iframe-wrap {
+      background: var(--bg1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .video-responsive {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .video-responsive iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .video-caption {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      color: var(--text2);
+      padding: 0.6rem 0.25rem 0.1rem;
+    }
+
+    /* ── VERDICT BLOCK ── */
+    .verdict-block {
+      background: var(--bg2);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin: 2rem 0;
+      border: 1px solid var(--border);
+    }
+    .verdict-glyph {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .verdict-block p { font-size: 0.875rem; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 3rem; }
+    footer .outer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-text { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.05em; color: var(--text2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      .display { font-size: 1.8rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-wrap img { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="header-inner">
+      <div class="logo-wrap" aria-hidden="true">
+        <img class="logo-dark"  src="https://abikesa.github.io/logos/assets/ukubona-dark.png"  alt="" />
+        <img class="logo-light" src="https://abikesa.github.io/logos/assets/ukubona-light.png" alt="" />
+      </div>
+      <div class="header-meta">
+        <h1>Triggers, Sensitization, Grammar</h1>
+        <p>Ukubona LLC · Architectural interrogation · June 19, 2026</p>
+      </div>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span id="theme-label">light</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-strip">
+    <div class="nav-inner">
+      <button class="tab-btn active" data-tab="spark">The Spark</button>
+      <button class="tab-btn" data-tab="ears">Ears vs Triggers</button>
+      <button class="tab-btn" data-tab="allodynia">Allodynia</button>
+      <button class="tab-btn" data-tab="grammar">Hidden Grammar</button>
+      <button class="tab-btn" data-tab="synthesis">Synthesis</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="outer">
+
+      <!-- ═══ THE SPARK ═══ -->
+      <section class="tab-panel active" id="tab-spark">
+        <div class="section">
+          <p class="eyebrow">Ukubona LLC · Architectural interrogation · Session 003</p>
+          <h2 class="display">A phrase at 42:55.<br>Then everything<br>else.</h2>
+          <p class="lede">This session didn't start with an equation. It started with six words, lifted from a stranger's video about a social experiment — guess if she's single, from across the room, on appearance alone.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-head">Where it was said</h2>
+          <blockquote>"Listen with your ears, not your triggers."</blockquote>
+          <p class="cite-line">42:55 · mid-discussion of the appearance-guessing experiment</p>
+
+          <div class="iframe-wrap">
+            <div class="video-responsive">
+              <iframe src="https://www.youtube.com/embed/2pAzSU_hCUA?start=2575" title="Source video, cued to 42:55" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">cued via ?start=2575</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-head">Why it mattered</h2>
+          <p>Six words turned out to be a compressed restatement of ŷ − y_reality. Appearance is θᵗ. Her actual answer is the ground truth. The gap between them is the only thing worth measuring — and everything that followed in this session, sensitized neurons, diagnostic syntax, a 2016 linguistics column, was the same gap, relocated to a different substrate.</p>
+
+          <div class="insight accent">
+            <div class="insight-head">Three relocations</div>
+            <p>Folk psychology names it triggers. Spinal neurophysiology names it central sensitization. Generative syntax names it adjective order. None of the three vocabularies knew about the other two when they were built.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ EARS VS TRIGGERS ═══ -->
+      <section class="tab-panel" id="tab-ears">
+        <div class="section">
+          <p class="eyebrow">Finding 1 · Reading the phrase through θᵗ → ŷ → ε</p>
+          <h2 class="display">Triggers are priors.<br>Ears are data.</h2>
+          <p class="lede">θᵗ is the colloquial "trigger" — the accumulated weighted prior firing before any new input arrives. "Ears" is Eₓ(τ), the raw event a guess is supposed to integrate before it's allowed to become an output.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-head">The phrase, formalized</h2>
+          <div class="eq-block">
+── Trigger pathway ───────────────────────────────────────<br>
+θᵗ (trigger) → ŷ (the guess) · skips the integral<br><br>
+── Ears pathway ──────────────────────────────────────────<br>
+Eₓ(τ) (ears) → y_reality (her actual answer)<br><br>
+── What's left over ──────────────────────────────────────<br>
+ε = ŷ − y_reality
+          </div>
+          <p>The social experiment is measuring ε in real time. Off-the-cuff guesses skip the integral and run L₀ straight to output — fluent, fast, ungrounded. λ_grounding ≈ 0.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-head">Where it strains</h2>
+          <div class="insight coral">
+            <div class="insight-head">Ears alone don't make θᵗ optional</div>
+            <p>L₀ is necessary infrastructure, not a contaminant. You can't initialize a forward pass without a prior. The fix isn't deleting triggers, it's gating their output behind a y_reality check before it reaches action.</p>
+          </div>
+          <div class="insight coral">
+            <div class="insight-head">Self-report is still a σ²</div>
+            <p>Even listening with your ears only swaps one unmodeled uncertainty for another. If y_reality here is her self-report, that's the same fragility as patient-stated goals in the clinical twin — people misreport themselves too. Relationship status just happens to be unusually verifiable.</p>
+          </div>
+          <div class="insight coral">
+            <div class="insight-head">One good listen isn't a backward pass</div>
+            <p>w_{t+1} = w_t − γ|ε|² describes an iterative update across many events. The line is an inference-time correction, not a training-time one — it fixes this guess, not the heuristic that produced it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ ALLODYNIA ═══ -->
+      <section class="tab-panel" id="tab-allodynia">
+        <div class="section">
+          <p class="eyebrow">Finding 2 · A sensitized system, one synapse upstream</p>
+          <h2 class="display">The same gap,<br>before the gate.</h2>
+          <p class="lede">Allodynia formalizes more cleanly than "triggers" — it's a documented synaptic event, not a folk-psychology guess about what's happening upstream.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-head">The local Jacobian</h2>
+          <div class="eq-block">
+∂pain / ∂touch — local sensitivity map<br><br>
+baseline:    ≈ 0<br>
+sensitized:  ≫ 0  · same input, rewritten meaning
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-head">Acute vs. chronic</h2>
+          <div class="thread">
+            <div class="thread-turn">
+              <span class="turn-tag finding">Acute</span>
+              <div class="turn-body">
+                <p>NMDA-mediated wind-up at the dorsal horn rewrites the tensor at the point of write, before any thalamic gate runs. By the time the signal reaches the gate, there's no false positive to catch — the input now genuinely carries nociceptive amplitude.</p>
+              </div>
+            </div>
+            <div class="thread-turn">
+              <span class="turn-tag gap">Chronic</span>
+              <div class="turn-body">
+                <p>Descending facilitation from RVM and amygdala — supraspinal, higher-order structures — actively maintains the sensitized state. The inhibitory pathway that should regularize instead facilitates. Chronic allodynia collapses into the same failure named elsewhere as regularization collapse, just instantiated in nociception.</p>
+              </div>
+            </div>
+            <div class="thread-turn">
+              <span class="turn-tag note">Where / What / How</span>
+              <div class="turn-body">
+                <p>"Where" (touch, a benign modality) is correct. "How" (the threat-response pathway) executes exactly as instructed. Only "what" (the label) is wrong — and the system still produces total dysfunction, because the corrupted axis sits upstream of the other two and they trust it completely.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="insight amber">
+            <div class="insight-head">What the fix has to be</div>
+            <p>Graded exposure doesn't argue the patient out of noticing touch — they're already attending fully, which is exactly what hurts. The fix runs at the update-rule level: small γ, narrow correctly-labeled low-ε stimuli, walking the receptive field back down.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ HIDDEN GRAMMAR ═══ -->
+      <section class="tab-panel" id="tab-grammar">
+        <div class="section">
+          <p class="eyebrow">Finding 3 · A 2016 linguistics column, read for architecture</p>
+          <h2 class="display">opinion · size · age<br>shape · colour · origin<br>material · purpose · noun</h2>
+          <p class="lede">
+            Source: <a class="src-link" href="https://www.economist.com/culture/2016/09/23/hidden-in-plain-sight" target="_blank" rel="noopener">"Hidden in plain sight,"</a> The Economist, Culture | Johnson, Sept 23 2016. Linked, not reproduced — the column is under copyright. What follows is the rule it documents, not its prose.
+          </p>
+        </div>
+
+        <div class="section">
+          <p>Mark Forsyth's rule for English adjective order, surfaced in the column: opinion, size, age, shape, colour, origin, material, purpose, then noun. Native speakers apply it without ever being taught it, and violate it only by accident — get the order wrong and the sentence sounds, in Forsyth's phrase, like the work of a maniac. The column's actual thesis: most people don't know they know most of the grammar they know.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-head">Mapped onto a diagnosis</h2>
+          <table class="map-table">
+            <thead>
+              <tr>
+                <th>Diagnostic term</th>
+                <th>TMVES layer</th>
+                <th>What it encodes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>thyroarytenoid</td>
+                <td>Tensor</td>
+                <td>a single named muscle — the raw anatomical structure</td>
+              </tr>
+              <tr>
+                <td>adductor</td>
+                <td>Matrix</td>
+                <td>functional class spanning TA + LCA + interarytenoids — a routing-level abstraction over several muscles</td>
+              </tr>
+              <tr>
+                <td>spasmodic</td>
+                <td>Eigenmode</td>
+                <td>the dynamical mode of the pathology — an unstable, oscillatory motor pattern, not a location</td>
+              </tr>
+              <tr>
+                <td>dysphonia</td>
+                <td>Scalar</td>
+                <td>the diagnostic output — the fused noun the other terms modify</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <div class="insight coral">
+            <div class="insight-head">The geometry overclaims</div>
+            <p>Adduction specifies one kinematic vector, not three spatial axes. Laterality and vertical level aren't free parameters here — AdSD is bilateral and glottic by convention. The real compression is hiding one level deeper: "adductor" is already a Matrix-layer collapse across three named muscles, happening silently inside a single word before "spasmodic" is even appended.</p>
+          </div>
+          <div class="insight teal">
+            <div class="insight-head">Where / What / How was never three axes</div>
+            <p>It's a rank-reduction sequence — the same grammar as opinion→...→purpose→noun, and the same grammar as Tensor→...→Scalar. Distance from the noun tracks how classifying a property is, not how independent it is. Three vocabularies converging on the same architecture without knowing about each other.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ SYNTHESIS ═══ -->
+      <section class="tab-panel" id="tab-synthesis">
+        <div class="section">
+          <p class="eyebrow">Closing · Session 003</p>
+          <h2 class="display">The mathematics<br>was always there.</h2>
+          <p class="lede">Three vocabularies, built for unrelated purposes, by unrelated disciplines, decades apart — folk psychology, spinal neurophysiology, generative syntax — all turned out to be reading the same coordinate.</p>
+        </div>
+
+        <div class="verdict-block">
+          <div class="verdict-glyph">ε</div>
+          <p style="margin-bottom:1rem;font-size:1rem;color:var(--text0)"><em>Every one of them is a version of the same question: what's the gap between what the prior predicted and what the input actually was — and who decided which one gets to be called real?</em></p>
+          <p>The clinical layer's open question — what y_reality should be for a patient trajectory — wasn't resolved this session either. But three more candidate vocabularies arrived to sharpen what an answer would need to look like: a self-reported relationship status, a von Frey filament reading, and a century and a half of descriptive linguistics. None of them transfers directly. All three confirm the same architecture is doing the work, whether or not it has a name yet.</p>
+          <p style="margin-top:1rem; color: var(--text2); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;">Ukubona LLC · State<sub>t</sub> = Σ Event<sub>i</sub> · June 19, 2026</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="outer">
+      <div class="footer-text">Ukubona LLC · Triggers, Sensitization, Grammar · Session 003</div>
+      <div class="footer-text">okubona — to see · append-only · never delete</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.getElementById('theme-label').textContent = isDark ? 'dark' : 'light';
+    }
+
+    (function() {
+      document.getElementById('theme-label').textContent = 'light';
+    })();
+
+    const tabs   = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    function activateTab(id) {
+      tabs.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === id));
+      panels.forEach(p  => p.classList.toggle('active', p.id === 'tab-' + id));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    tabs.forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.tab)));
+  </script>
+
+</body>
+</html>
